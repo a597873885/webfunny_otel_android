@@ -47,5 +47,5 @@ Then, use the `hurlStack` to create your request queue and send requests like yo
 # Troubleshooting
 
 This library is `Experimental` and we actively welcome feedback. Please
-[open an issue](https://github.com/signalfx/webfunny-otel-android/issues/new) to report any
+[open an issue](https://github.com/a597873885/webfunny_otel_android/issues/new) to report any
 challenges or concerns.

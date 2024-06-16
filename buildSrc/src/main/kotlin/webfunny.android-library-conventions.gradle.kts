@@ -67,7 +67,7 @@ afterEvaluate {
                 }
 
                 pom {
-                    url.set("https://github.com/a597873885/webfunny_otel_android")// TODO 替换为正式的地址
+                    url.set("https://github.com/a597873885/webfunny_otel_android")
                     licenses {
                         license {
                             name.set("The Apache License, Version 2.0")
