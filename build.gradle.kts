@@ -6,7 +6,8 @@ buildscript {
     }
     dependencies {
         // keep this version in sync with /buildSrc/build.gradle.kts
-        classpath("com.android.tools.build:gradle:8.3.1")
+        classpath("com.android.tools.build:gradle:8.3.2")
+        classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
     }
 }
 
@@ -19,7 +20,10 @@ allprojects {
         google()
         mavenCentral()
         maven {
-            url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+        }
+        maven {
+            url = uri("https://jitpack.io")
         }
     }
     if (findProperty("release") != "true") {
