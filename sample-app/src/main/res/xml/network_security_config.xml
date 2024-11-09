@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="InsecureBaseConfiguration">
+    <base-config cleartextTrafficPermitted="true"/>
+<!--    如果想要指定部分domain才能使用http访问，则使用以下配置 -->
+<!--    <domain-config>-->
+<!--        <domain includeSubdomains="true">test.webfunny.cn</domain>-->
+<!--        <trust-anchors>-->
+<!--            <certificates src="user"/>-->
+<!--        </trust-anchors>-->
+<!--    </domain-config>-->
+
+</network-security-config>
