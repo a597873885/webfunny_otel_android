@@ -19,6 +19,8 @@ package com.webfunny.android.sample;
 import static io.opentelemetry.api.common.AttributeKey.stringKey;
 
 import android.app.Application;
+
+import com.tencent.mmkv.MMKV;
 import com.webfunny.rum.WebfunnyRum;
 import com.webfunny.rum.StandardAttributes;
 
@@ -36,11 +38,14 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        MMKV.initialize(this);
+
         WebfunnyRum.builder()
                 // note: for these values to be resolved, put them in your local.properties
                 // file as rum.beacon.url and rum.access.token
-                .setRealm(getResources().getString(R.string.rum_realm))
-                .setApplicationName("Android Demo App")
+                .setBeaconEndpoint(WebFunnyCustomConfig.ENDPOINT)
+                .setApplicationName(WebFunnyCustomConfig.APPLICATION_NAME)
+                .setDeploymentEnvironment(WebFunnyCustomConfig.DEPLOYMENT_ENV)
                 .setRumAccessToken(getResources().getString(R.string.rum_access_token))
                 .enableDebug()
                 .enableDiskBuffering()
@@ -51,7 +56,12 @@ public class SampleApplication extends Application {
                 .limitDiskUsageMegabytes(1)
                 .setGlobalAttributes(
                         Attributes.builder()
-                                .put("vendor", "Webfunny")
+                                .put("vendor", WebFunnyCustomConfig.CUSTOM_GLOBAL_ATTRS_VENDOR)
+                                .put("userId", WebFunnyCustomConfig.CUSTOM_GLOBAL_ATTRS_USER_ID)
+                                .put("uuid", WebFunnyCustomConfig.getUUID())
+                                .put("userTag", WebFunnyCustomConfig.CUSTOM_GLOBAL_ATTRS_USER_TAG)
+                                .put("projectVersion", WebFunnyCustomConfig.CUSTOM_GLOBAL_ATTRS_PROJECT_VER)
+                                .put("customerKey", WebFunnyCustomConfig.CUSTOM_GLOBAL_ATTRS_CUSTOM)
                                 .put(StandardAttributes.APP_VERSION, BuildConfig.VERSION_NAME)
                                 .build())
                 .filterSpans(

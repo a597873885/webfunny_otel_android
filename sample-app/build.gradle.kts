@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId = "com.webfunny.android.sample"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -82,6 +82,8 @@ dependencies {
     implementation("io.opentelemetry:opentelemetry-sdk-logs")
     implementation("io.opentelemetry:opentelemetry-sdk")
     implementation("io.opentelemetry:opentelemetry-exporter-sender-okhttp")
+
+    implementation("com.tencent:mmkv:2.0.0")
 
     implementation("junit:junit:4.13.2")
     testImplementation("junit:junit:4.13.2")
